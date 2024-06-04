@@ -95,12 +95,13 @@ const Home = () => {
 			const data = await response
 			console.log("Im getting this:", data)
 			setTaskList([])
+			createUser()
 		}
 		catch(error){
 			console.log(error)
 		}
 	}
-
+	
 	useEffect(() => {
 		createUser()
 		getToDos()
@@ -137,7 +138,11 @@ const Home = () => {
 					>No tasks, add a task</li>
 					)
 					: (taskList.map((task) => (
-						<li key={task.id} className="d-flex justify-content-between list-group-item shadow bg-body rounded px-5">
+						<li key={task.id} className="d-flex 
+						justify-content-between 
+						list-group-item shadow 
+						bg-body rounded 
+						px-5">
 							{task.label} {""}
 							<span><i className="fa-solid fa-x text-danger delete-icon" onClick={() =>deleteToDo(task.id)}></i></span>
 						</li>)
